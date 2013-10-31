@@ -9,6 +9,7 @@ One height grid
 - data-margin="xx" - отступы между ячейками
 - data-resize="on|off" - включить/отключить ресайз
 
+Посмотреть как работает можно тут: https://rawgithub.com/polsad/one-height-grid/master/demo/index.html
 
 The library was developed for personal use only.
 Use it at your own risk.
