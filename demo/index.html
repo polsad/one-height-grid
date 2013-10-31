@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+  <title>Demo</title>
+  <script src="../vendor/require.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+<body>
+    <div class="page">
+        <div class="one-height-grid" data-margin="10">
+            <div class="one-height-grid-row">
+                <div class="one-height-grid-cell" data-width="480" data-height="800">
+                    <span class="spinner"></span>
+                    <img data-src="images/9.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""/>
+                </div>
+                <div class="one-height-grid-cell" data-width="1500" data-height="1000">
+                    <span class="spinner"></span>
+                    <img data-src="images/1.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""/>
+                </div>
+            </div>
+            <div class="one-height-grid-row">                
+                <div class="one-height-grid-cell" data-width="1500" data-height="1000">
+                    <span class="spinner"></span>
+                    <img data-src="images/2.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"  alt=""/>
+                </div>
+            </div>
+            <div class="one-height-grid-row">
+                <div class="one-height-grid-cell" data-width="1500" data-height="1000">
+                    <span class="spinner"></span>
+                    <img data-src="images/3.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"  alt=""/>
+                </div>
+                <div class="one-height-grid-cell" data-width="1500" data-height="1000">
+                    <span class="spinner"></span>
+                    <img data-src="images/4.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"  alt=""/>
+                </div>
+            </div>
+            <div class="one-height-grid-row">
+                <div class="one-height-grid-cell" data-width="1296" data-height="1000">
+                    <span class="spinner"></span>
+                    <img data-src="images/5.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""/>
+                </div>  
+            </div>                
+            <div class="one-height-grid-row">
+                <div class="one-height-grid-cell" data-width="1296" data-height="1000">
+                    <span class="spinner"></span>
+                    <img data-src="images/5.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""/>
+                </div>  
+                <div class="one-height-grid-cell" data-width="1500" data-height="998">
+                    <span class="spinner"></span>
+                    <img data-src="images/6.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""/>
+                </div>
+                <div class="one-height-grid-cell" data-width="1500" data-height="1000">
+                    <span class="spinner"></span>
+                    <img data-src="images/7.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""/>
+                </div>     
+            </div>
+            <div class="one-height-grid-row">
+                <div class="one-height-grid-cell" data-width="1386" data-height="1000">
+                    <span class="spinner"></span>
+                    <img data-src="images/8.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"  alt=""/>
+                </div>
+            </div>
+            <div class="one-height-grid-row">
+                <div class="one-height-grid-cell" data-width="1296" data-height="1000">
+                    <span class="spinner"></span>
+                    <img data-src="images/5.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""/>
+                </div>
+                <div class="one-height-grid-cell" data-width="1500" data-height="998">
+                    <span class="spinner"></span>
+                    <img data-src="images/6.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""/>
+                </div>
+                <div class="one-height-grid-cell" data-width="1500" data-height="1000">
+                    <span class="spinner"></span>
+                    <img data-src="images/7.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""/>
+                </div>
+            </div>            
+        </div>
+        
+    </div>
+	<script>
+		requirejs.config({
+			baseUrl: '../' + (document.location.hash == '#dist'? 'dist': 'src'),
+			paths: {
+				'backbone': '../vendor/backbone-min',
+				'underscore': '../vendor/underscore-min',
+				'jquery': '../vendor/jquery-1.9.1.min',
+				'loading-queue': '../vendor/jquery.loading-queue.min',           
+                'spinners': '../vendor/spinners.min',
+			},
+			shim: {
+				'loading-queue': {
+					deps: ['jquery'],
+			    	exports: '$'
+				},
+                'spinners': {
+					deps: ['jquery'],
+			    	exports: 'Spinners'               
+                },
+				'backbone': {
+					deps: ['jquery', 'underscore'],
+			    	exports: 'Backbone'
+				}
+			}
+		});
+	
+		require(['one-height-grid', 'spinners', 'loading-queue'],function(OneHeightGrid, Spinners){
+            var grid = new OneHeightGrid({
+                el: $('.one-height-grid')
+            });
+            
+            // Create spinners in cell
+            Spinners.create(grid.$el.find(grid.options.cellSelector + ' .spinner'), {
+                radius: 7,
+                height: 10,
+                width: 1.5,
+                dashes: 20,
+                opacity: 0.85,
+                rotation: 800,
+                color: '#000000'
+            }).center().play();
+            
+            // Render cell
+            grid.render();	
+            
+            grid.$el.find(grid.options.cellSelector + ' img').each(function() {
+                $(this).loadingQueue().then(function(img) {
+                    $(img).parent().find('.spinner').remove();
+                    $(img).css('opacity', 1);
+                });				
+            });
+		});	
+	</script>
+</body>
+</html>

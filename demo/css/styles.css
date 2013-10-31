@@ -1,0 +1,14 @@
+html, body {height: 100%}
+body {margin: 0; padding: 0;}
+.page {max-width: 1000px; margin: 0 auto; padding: 20px; overflow: hidden}
+
+.one-height-grid-row { padding: 0; margin: 0;}
+.one-height-grid-row:after {clear: both}
+.one-height-grid-row .one-height-grid-cell {float: left; padding: 0; margin: 0; overflow: hidden; background: #eee}
+.one-height-grid-row .one-height-grid-cell  img {
+    display: block; max-height: 100%; height; auto; opacity: 0;
+	-webkit-transition: opacity .4s ease-out; 
+	-moz-transition: opacity .4s ease-out; 
+	-o-transition: opacity .4s ease-out; 
+	transition: opacity .4s ease-out;
+}
