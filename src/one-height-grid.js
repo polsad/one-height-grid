@@ -15,16 +15,15 @@ define([
     
         initialize: function() {
             var self = this;
-
+        
             this.options.cellMargin = $(this.el).data('margin'); 
-            this.setGridSize();           
-            
+
             // On / off resize 
             if ($(this.el).data('resize') != 'off') {    
                 $(window).on('resize', function() {
                     self.setGridSize();
                 });
-            }
+            }            
         },
         
         setGridSize: function() {
@@ -50,7 +49,7 @@ define([
                 $(cells).each(function() {
                     var w = parseInt($(this).data('width'));
                     var h = parseInt($(this).data('height'));
-                    
+
                     if (h < minH) 
                         minH = h;
                         
@@ -85,13 +84,14 @@ define([
                             $(cells).eq(i).css({'width':width[i]+'px'});
                         }
                     }
+                    $(cells).eq(i).trigger('render:finish');
                 }
             });    
-
             self.options.regenerateFlag = false;            
         },
 
         render: function() {
+            this.setGridSize();           
             return this;
         }
     });
