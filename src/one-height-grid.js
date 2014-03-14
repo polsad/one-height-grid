@@ -28,6 +28,7 @@ define([
         
         setGridSize: function() {
             var self = this;
+			var size = $(self.options.rowSelector).length - 1;
             this.options.parentWidth = $(this.el).width();
             
             $(self.options.rowSelector).each(function() {
@@ -39,6 +40,7 @@ define([
                 }
 
                 var cells = $(this).find(self.options.cellSelector);
+				var lastRow = (size == $(this).index()) ? true : false;
 
                 // Step 1 get sizes
                 var width = new Array();
@@ -73,7 +75,10 @@ define([
                     width[i] = Math.round(width[i] * rate);
                     tmpWidth = tmpWidth + width[i];
                     
-                    $(cells).eq(i).css({'height': minH+'px', 'width':width[i]+'px', 'marginBottom': self.options.cellMargin+'px' });
+                    $(cells).eq(i).css({'height': minH+'px', 'width':width[i]+'px'});
+					if (lastRow == false) {
+						$(cells).eq(i).css({'marginBottom': self.options.cellMargin+'px'});
+					}
                     if (i != width.length - 1) {
                         $(cells).eq(i).css({'marginRight': self.options.cellMargin+'px' });
                         tmpWidth = tmpWidth + self.options.cellMargin;
